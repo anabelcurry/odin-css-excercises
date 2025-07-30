@@ -7,9 +7,56 @@ img {
   height: 100px;
 }
 
+/* What I would have done differently:
+my version is unneccessarily verbose. The information class is unneeded and
+ultimately creates a need to flip the flex-direction 3 times which is not dry.
+
+The solution version skips wrapping the whole thing in a container and just uses
+text-align: center on the body element, that way it stays as a block element.
+So I could cut this whole .information section*/
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+}
+
+/* I missed adding margin bottom here (i had it at one point but removed it
+because I had other padding/margins) but having it here is simpler if I was not
+to have the extra container for alignment */
 .title {
   font-size: 36px;
   font-weight: 900;
+}
+
+/* If I did the above change, this would be the first use of display:flex and
+it's associated justify content but would no longer need to switch directions.
+I would also not have to center because it would come from the body element. 
+They also use gap instead of padding but my pixel count is similar 60px vs 52px. */
+.plant-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 60px;
+}
+
+/* Again I would be able to eliminate the declaration of flex and change of
+direction. as well as the alignment because it would come from the body element. 
+Margin would be handled by the gap of the previous rule. The width is correct 
+px wise but they use max width which is more flexible on
+resize. */
+.plant-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 50px;
+}
+
+/* This .text wouldn't need to exist because alignment would come from body and 
+width would be as max width on .plant-card*/
+.text {
+  text-align: center;
+  width: 200px;
 }
 
 /* do not edit this footer */
