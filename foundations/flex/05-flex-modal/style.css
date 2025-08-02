@@ -20,6 +20,9 @@ body {
   width: 480px;
   border-radius: 10px;
   box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+  display: flex;
+  gap: 16px;
+  padding: 12px;
 }
 
 .icon {
@@ -33,6 +36,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .close-button {
@@ -50,10 +63,14 @@ body {
   padding: 0;
 }
 
+/* for some reason I got it in my head that I shouldn't add any rules so I didn't 
+add a .text rule with a margin-bottom of 16px and instead put a margin top on the 
+button. But I think what the solution did was best practice */
 button {
   cursor: pointer;
   padding: 8px 16px;
   border-radius: 8px;
+  margin-top: 16px;
 }
 
 button.continue {
